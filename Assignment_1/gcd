@@ -1,0 +1,16 @@
+     AREA     gcd, CODE, READONLY
+     export __main	
+	 ENTRY 
+__main  function
+	          MOV r0 , #15	  ;value of a	
+			  MOV r1 , #10     ;value of b
+LOOP			  CMP r0 , r1        ;Compare the value of r0,r1
+              IT EQ            ; if(r0==r1)
+              BEQ STOP   ; stop the loop	
+              ITE GT          	
+			  SUBGT r0 , r0 , r1 ;if(r0>r1)  r0=r0-r1 			
+			  SUBLE r1 , r1 , r0; if(r0<r1) r1=r1-r0
+              B LOOP			
+STOP		      B STOP  ; stop program
+      endfunc
+      end
