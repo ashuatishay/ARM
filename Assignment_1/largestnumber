@@ -1,0 +1,18 @@
+     AREA     largernumber, CODE, READONLY
+     export __main	
+	 ENTRY 
+__main  function
+	          MOV r0 , #20   ;first number
+	          MOV r1 , #40    ;second number
+              MOV r2 , #50 	        ;third number  			
+              CMP r0 , r1                 ;Compare first two numbers 
+              ITE GT
+              MOVGT r3 , r0             ;Move data to register r3=r0 if(r0>r1)
+              MOVLE  r3, r1              ;else r3=r1
+			  CMP r3 , r2;Compare value of r3 and r2
+			  ITE GT 
+			  MOVGT r3 , r3 ;If (r3>r2) r3=r3
+			  MOVLE r3 , r2 ;if(r3<r2) r3=r2
+STOP		      B STOP  ; stop program
+      endfunc
+      end
