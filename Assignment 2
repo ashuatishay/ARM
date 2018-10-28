@@ -1,0 +1,38 @@
+IT instruction is a conditional instruction. Condition can be same or it can also be logically inverse. Conditional instruction 
+inside block forms conditional IT block.
+The following instructions are not allowed inside an IT Block
+1.IT
+2.CBZ and CBNZ
+3.CPSIDE and CPSIE
+A branch instruction either must be outside the IT block or last instruction of IT block,Care must be taken to avoid the branching
+instruction inside an IT block,except when returning from exception hanadler.Bcod instruction can be inside or outside an IT block.
+Each instruction inside the IT block must specify a conditional code suffix ,this is the problem with the given code.
+
+The given code is 
+;PRESERVE8
+;thumb
+area appcode, CODE, READONLY
+export __main
+ENTRY
+__main function
+MOV R3, #0x100
+MOV R8, #0x200
+CMP R8, R3 ; do R8 - R3 & updated N & V flags
+ITTTE LT ; or N != V
+MOV R3, #0x100
+MOV R8, #0x200
+MOV R7, #0x200
+MOV R6, #0x200
+stop B stop ; stop program
+endfunc
+end
+
+As it is clear from code that suffix of the  instruction is missing therfore it throws an error.The correct code for IT block is 
+written below.
+
+ITTTE LT ; or N != V
+MOVLT R3, #0x100;      // instruction is changed from MOV to MOVLT
+MOVLT R8, #0x200;     // instruction is changed from MOV to MOVLT
+MOVLT R7, #0x200;    // instruction is changed from MOV to MOVLT
+MOVGE R6, #0x200'   // instruction is changed from MOV to MOVLT 
+stop B stop ; stop program
