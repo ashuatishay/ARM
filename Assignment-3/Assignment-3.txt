@@ -1,0 +1,28 @@
+1.Does any of the above three components play a role in the defining the Precession of the number ? If so which are the component or Components  which play the  role in defining precession  and how ? Explain this with example in your own words
+Answer 1.Smallest change that can be represented in floating point format is called as the precision. There are three type of floating type format
+1.Half Precision Floating Point Format(16-bit data)
+2.Single Precision Floating Point Format(32-bit data)
+3.Double Precision Floating Point Format(64-bit data)
+
+There are major three component in all the three format - Sign bit,Exponent bits and Fraction bits.The Fraction bits  plays an important role in defining the Precision for example if we compare 1.7 * 10^1 and 17.0 the error in second case is less compare to that of the first one. Therefore fraction plays an important role in Precision.
+
+2.What is Normal and Subnormal  Values as per IEEE 754  standards  explain this  with the  help of number line
+Answer 2.Normal representation will have finitie number of leading zero values but in subnormal form there is no finite number of leading zero in the mantissa part.
+For example for the same number representation in two different format is as follows
+
+1.Normal format - 2.01 *2^-8
+2.Subnormal format- 0.000201 *2^-4
+
+3.IEEE 754vv defines standards for rounding floating points numbers to a represent able value. There are five methods defines by IEEE for this – Take time and  understand what these five methods and explain it in your words using diagrams, illustrations of your own.
+Answer 3. Airthmatic is performed by computing the result and then it is rounded to fit in a particular format.In many cases correct answer is between two format and then it chooses one of the formats to  represent the number. 
+There are five rounding rules in IEEE 754 format
+
+1.Round to nearest, ties to even - In this method real number is rounded to the nearest even number. for example if a number is 6.2 it will be rounded off to 6.
+
+2.Rounded to nearest, ties away from zero -Real number is rounded off to the nearest integer number. If it is in between positive and negative number it will convert to a closest integer value.
+
+3.Rounded Towards zero - While going towards zero it truncates to the nearest integer value. For example -7.2 will truncate to -7.
+
+4.Round Towards -infinty -Real number is truncated to the nearest integer while going towards zero for example -8.6 is rounded off to -9.
+
+5.Rounded Towards +infinity- Real number is rounded off towards nearest integer while going toward 0.	For example 8.2 will be rounded to 9. 
